@@ -1,7 +1,4 @@
-﻿// This code is based on the Large File Upload sample code
-// Original code: https://github.com/pnp/PnP/tree/master/Samples/Core.LargeFileUpload
-
-using Microsoft.SharePoint.Client;
+﻿using Microsoft.SharePoint.Client;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,57 +14,71 @@ namespace Contoso.Core.LargeFileUpload
         static void Main(string[] args)
         {
             // Request Office365 site from the user
-            string siteUrl = GetSite();
+            string siteUrl = GetSite(); // url 입력
 
             /* Prompt for Credentials */
             Console.WriteLine("Enter credentials for {0}", siteUrl);
 
-            string userName = GetUserName();
-            SecureString pwd = GetPassword();
+            string userName = GetUserName(); // user 계정 입력
+            SecureString pwd = GetPassword(); // user 비밀번호 입력
 
             /* End Program if no Credentials */
             if (string.IsNullOrEmpty(userName) || (pwd == null))
                 return;
 
             ClientContext ctx = new ClientContext(siteUrl);
-            ctx.AuthenticationMode = ClientAuthenticationMode.Default;
-            ctx.Credentials = new SharePointOnlineCredentials(userName, pwd);
+            ctx.AuthenticationMode = ClientAuthenticationMode.Default; // Default : 0
+            ctx.Credentials = new SharePointOnlineCredentials(userName, pwd); // SharePoint Online 리소스에 액세스하기 위한 자격 증명을 제공하는 개체
+            Console.WriteLine(ctx.Credentials);
+            Console.WriteLine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory)); // C:\Users\mhkang\Desktop\largefile\Core.LargeFileUpload\Core.LargeFileUpload\bin\Debug\
 
             // First the failing part
-            try
-            {
-                // Works for smaller files and will cause an exception now
-                new FileUploadService().UploadDocumentContent(ctx, "Docs", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SP2013_LargeFile1.pptx"));
-            }
-            catch (Exception ex)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(string.Format("Exception while uploading file to the target site {0}.", ex.ToString()));
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("Press enter to continue.");
-                Console.Read();
-                
-            }
+            // try
+            // {
+            //     // Works for smaller files and will cause an exception now
+            //     new FileUploadService().UploadDocumentContent(ctx, "Docs", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SP2013_LargeFile1.pptx"));
+            // }
+            // catch (Exception ex)
+            // {
+            //     Console.ForegroundColor = ConsoleColor.Red;
+            //     Console.WriteLine(string.Format("Exception while uploading file to the target site {0}.", ex.ToString()));
+            //     Console.ForegroundColor = ConsoleColor.White;
+            //     Console.WriteLine("Press enter to continue.");
+            //     Console.Read();
+            //     
+            // }
 
             // These should both work as expected.
             try
             {
                 // Alternative 1 for uploading large files 
-                new FileUploadService().SaveBinaryDirect(ctx, "Docs", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SP2013_LargeFile1.pptx"));
+                new FileUploadService().SaveBinaryDirect(ctx, "repository", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "files/rag-alpha.apk"));
+                new FileUploadService().SaveBinaryDirect(ctx, "repository", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "files/rag-alpha.ipa"));
+                new FileUploadService().SaveBinaryDirect(ctx, "repository", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "files/exe.zip"));
+                new FileUploadService().SaveBinaryDirect(ctx, "repository", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "files/OneDrive_2023-06-02.zip"));
+                new FileUploadService().SaveBinaryDirect(ctx, "repository", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "files/MU_Red_1_20_20_Full.exe"));
+
                 // Alternative 2 for uploading large files
-                new FileUploadService().UploadDocumentContentStream(ctx, "Docs", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SP2013_LargeFile2.pptx"));
+                // new FileUploadService().UploadDocumentContentStream(ctx, "repository", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "rag-alpha.apk"));
+
                 // Alternative 3 for uploading large files: slice per slice which allows you to stop and resume a download
-                new FileUploadService().UploadFileSlicePerSlice(ctx, "Docs", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SP2013_LargeFile3.pptx"), 1);
+                // new FileUploadService().UploadFileSlicePerSlice(ctx, "repository", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "SP2013_LargeFile1.pptx"), 1);
+                // new FileUploadService().UploadFileSlicePerSlice(ctx, "repository", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "exe.zip"), 1);
+
+                // new FileUploadService().UploadFileSlicePerSlice(ctx, "repository", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "OneDrive_2023-06-02.zip"), 1);
+                // new FileUploadService().UploadFileSlicePerSlice(ctx, "repository", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "rag-alpha.apk"), 1);
+                // new FileUploadService().UploadFileSlicePerSlice(ctx, "repository", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "rag-alpha.ipa"), 1);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(string.Format("Exception while uploading files to the target site: {0}.", ex.ToString()));
+                Console.WriteLine(string.Format("Exception while uploading files t" +
+                    "o the target site: {0}.", ex.ToString()));
                 Console.WriteLine("Press enter to continue.");
                 Console.Read();
             }
             // Just to see what we have in console
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("Three large files were uploaded to the Docs document library. Press enter to continue.");
+            Console.WriteLine("large files were uploaded to library. Press enter to continue.");
             Console.Read();
         }
 

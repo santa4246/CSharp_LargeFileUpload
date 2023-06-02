@@ -1,0 +1,296 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio\2019\professional\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="16.0">
+ <Targets>
+  <Target Name="C:\Users\mhkang\Desktop\largefile\Core.LargeFileUpload\Core.LargeFileUpload\bin\Debug\Contoso.Core.LargeFileUpload.exe">
+   <Modules>
+    <Module Name="contoso.core.largefileupload.exe">
+     <Messages>
+      <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Status="Active" Created="2023-06-02 11:08:52Z" FixCategory="NonBreaking">
+       <Issue Name="NoStrongName" Certainty="95" Level="CriticalError">강력한 이름의 키로 'Contoso.Core.LargeFileUpload.exe'을(를) 서명하십시오.</Issue>
+      </Message>
+      <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Status="Active" Created="2023-06-02 11:08:52Z" FixCategory="NonBreaking">
+       <Issue Certainty="95" Level="Error">'Contoso.Core.LargeFileUpload.exe'은(는) 외부에 표시되는 형식을 노출하므로 CLSCompliant(true)로 표시하십시오.</Issue>
+      </Message>
+     </Messages>
+     <Namespaces>
+      <Namespace Name="Contoso.Core.LargeFileUpload">
+       <Types>
+        <Type Name="FileUploadService" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#CreateLibrary(Microsoft.SharePoint.Client.ClientContext,Microsoft.SharePoint.Client.Web,System.String)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Active" Created="2023-06-02 11:08:52Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="C:\Users\mhkang\Desktop\largefile\Core.LargeFileUpload\Core.LargeFileUpload" File="FileUploadService.cs" Line="132">'FileUploadService.CreateLibrary(ClientContext, Web, string)'의 'this' 매개 변수(Visual Basic의 경우 'Me')는 사용되지 않습니다. 멤버를 static(Visual Basic의 경우 Shared)으로 표시하거나 메서드 본문에서 'this'/'Me'를 사용하거나, 필요한 경우 하나 이상의 속성 접근자를 사용하십시오.</Issue>
+            </Message>
+            <Message Id="list" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Status="Active" Created="2023-06-02 11:08:52Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="C:\Users\mhkang\Desktop\largefile\Core.LargeFileUpload\Core.LargeFileUpload" File="FileUploadService.cs" Line="137">'FileUploadService.CreateLibrary(ClientContext, Web, string)'에서 'List' 형식의 변수 'list'을(를) 선언하는데 이 변수는 사용되지 않거나 단지 할당만 되어 있습니다. 이 변수를 사용하거나 제거하십시오.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#LibraryExists(Microsoft.SharePoint.Client.ClientContext,Microsoft.SharePoint.Client.Web,System.String)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Active" Created="2023-06-02 11:08:52Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="C:\Users\mhkang\Desktop\largefile\Core.LargeFileUpload\Core.LargeFileUpload" File="FileUploadService.cs" Line="116">'FileUploadService.LibraryExists(ClientContext, Web, string)'의 'this' 매개 변수(Visual Basic의 경우 'Me')는 사용되지 않습니다. 멤버를 static(Visual Basic의 경우 Shared)으로 표시하거나 메서드 본문에서 'this'/'Me'를 사용하거나, 필요한 경우 하나 이상의 속성 접근자를 사용하십시오.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SaveBinaryDirect(Microsoft.SharePoint.Client.ClientContext,System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="System.String.Format(System.String,System.Object,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2023-06-02 11:08:52Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="C:\Users\mhkang\Desktop\largefile\Core.LargeFileUpload\Core.LargeFileUpload" File="FileUploadService.cs" Line="76">'string.Format(string, object, object)'의 동작은 현재 사용자의 로캘 설정에 따라 달라질 수 있으므로 'FileUploadService.SaveBinaryDirect(ClientContext, string, string)'에서 이 호출을 'string.Format(IFormatProvider, string, params object[])' 호출로 대체하세요. 'string.Format(IFormatProvider, string, params object[])'의 결과가 사용자에게 표시되는 경우 'CultureInfo.CurrentCulture'을(를) 'IFormatProvider' 매개 변수로 지정하세요. 그렇지 않고 결과가 디스크 또는 데이터베이스에 보관되는 경우와 같이 소프트웨어에 의해 저장 및 액세스되는 경우 'CultureInfo.InvariantCulture'을(를) 지정하세요.</Issue>
+            </Message>
+            <Message Id="0" TypeName="public 메서드의 인수에 대한 유효성을 검사하세요." Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2023-06-02 11:08:52Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="C:\Users\mhkang\Desktop\largefile\Core.LargeFileUpload\Core.LargeFileUpload" File="FileUploadService.cs" Line="61">외부에 표시되는 메서드 'FileUploadService.SaveBinaryDirect(ClientContext, string, string)'에서 사용하기 전에 'ctx' 매개 변수의 유효성을 검사하십시오.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#UploadDocumentContentStream(Microsoft.SharePoint.Client.ClientContext,System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="0" TypeName="public 메서드의 인수에 대한 유효성을 검사하세요." Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2023-06-02 11:08:52Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="C:\Users\mhkang\Desktop\largefile\Core.LargeFileUpload\Core.LargeFileUpload" File="FileUploadService.cs" Line="91">외부에 표시되는 메서드 'FileUploadService.UploadDocumentContentStream(ClientContext, string, string)'에서 사용하기 전에 'ctx' 매개 변수의 유효성을 검사하십시오.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#UploadFileSlicePerSlice(Microsoft.SharePoint.Client.ClientContext,System.String,System.String,System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DefaultParametersShouldNotBeUsed" Category="Microsoft.Design" CheckId="CA1026" Status="Active" Created="2023-06-02 11:08:52Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Error" Path="C:\Users\mhkang\Desktop\largefile\Core.LargeFileUpload\Core.LargeFileUpload" File="FileUploadService.cs" Line="152">'FileUploadService.UploadFileSlicePerSlice(ClientContext, string, string, int)' 메서드를 모든 기본 인수를 제공하는 오버로드로 바꾸세요.</Issue>
+            </Message>
+            <Message Id="fileChunkSizeInMB*1024" TypeName="OperationsShouldNotOverflow" Category="Microsoft.Usage" CheckId="CA2233" Status="Active" Created="2023-06-02 11:08:52Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="CriticalWarning" Path="C:\Users\mhkang\Desktop\largefile\Core.LargeFileUpload\Core.LargeFileUpload" File="FileUploadService.cs" Line="175">'FileUploadService.UploadFileSlicePerSlice(ClientContext, string, string, int)'의 'fileChunkSizeInMB*1024' 연산에서 잠재적인 오버플로를 수정하십시오.</Issue>
+            </Message>
+            <Message Id="0" TypeName="public 메서드의 인수에 대한 유효성을 검사하세요." Category="Microsoft.Design" CheckId="CA1062" Status="Active" Created="2023-06-02 11:08:52Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="C:\Users\mhkang\Desktop\largefile\Core.LargeFileUpload\Core.LargeFileUpload" File="FileUploadService.cs" Line="160">외부에 표시되는 메서드 'FileUploadService.UploadFileSlicePerSlice(ClientContext, string, string, int)'에서 사용하기 전에 'ctx' 매개 변수의 유효성을 검사하십시오.</Issue>
+            </Message>
+            <Message TypeName="개체를 여러 번 삭제하지 마십시오." Category="Microsoft.Usage" CheckId="CA2202" Status="Active" Created="2023-06-02 11:08:52Z" FixCategory="DependsOnFix">
+             <Issue Certainty="75" Level="Warning" Path="C:\Users\mhkang\Desktop\largefile\Core.LargeFileUpload\Core.LargeFileUpload" File="FileUploadService.cs" Line="286">'fs' 개체는 'FileUploadService.UploadFileSlicePerSlice(ClientContext, string, string, int)' 메서드에서 여러 번 삭제할 수 있습니다. System.ObjectDisposedException이 생성되지 않도록 개체에 대해 Dispose를 여러 번 호출하지 마십시오.: Lines: 286</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Program" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
+         <Members>
+          <Member Name="#GetPassword()" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2023-06-02 11:08:52Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="C:\Users\mhkang\Desktop\largefile\Core.LargeFileUpload\Core.LargeFileUpload" File="Program.cs" Line="114">'Exception'보다 좀 더 구체적인 예외를 catch하거나 예외를 다시 throw하려면 'Program.GetPassword()'을(를) 수정하십시오.</Issue>
+            </Message>
+            <Message Id="System.Console.Write(System.String)" TypeName="리터럴을 지역화된 매개 변수로 전달하지 마십시오." Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2023-06-02 11:08:52Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="C:\Users\mhkang\Desktop\largefile\Core.LargeFileUpload\Core.LargeFileUpload" File="Program.cs" Line="101">'Program.GetPassword()' 메서드가 리터럴 문자열을 'Console.Write(string)' 호출의 'value' 매개 변수로 전달합니다. 대신 리소스 테이블에서 " " 문자열을 가져오세요.</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="C:\Users\mhkang\Desktop\largefile\Core.LargeFileUpload\Core.LargeFileUpload" File="Program.cs" Line="107">'Program.GetPassword()' 메서드가 리터럴 문자열을 'Console.Write(string)' 호출의 'value' 매개 변수로 전달합니다. 대신 리소스 테이블에서 "*" 문자열을 가져오세요.</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="C:\Users\mhkang\Desktop\largefile\Core.LargeFileUpload\Core.LargeFileUpload" File="Program.cs" Line="91">'Program.GetPassword()' 메서드가 리터럴 문자열을 'Console.Write(string)' 호출의 'value' 매개 변수로 전달합니다. 대신 리소스 테이블에서 "Password: " 문자열을 가져오세요.</Issue>
+            </Message>
+            <Message TypeName="범위를 벗어나기 전에 개체를 삭제하십시오." Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2023-06-02 11:08:52Z" FixCategory="DependsOnFix">
+             <Issue Name="NonExceptionEdge" Certainty="75" Level="Warning" Path="C:\Users\mhkang\Desktop\largefile\Core.LargeFileUpload\Core.LargeFileUpload" File="Program.cs" Line="88">'Program.GetPassword()' 메서드에서 'sStrPwd' 개체에 대한 모든 참조가 범위를 벗어나기 전에 System.IDisposable.Dispose를 호출하십시오.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetSite()" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2023-06-02 11:08:52Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="C:\Users\mhkang\Desktop\largefile\Core.LargeFileUpload\Core.LargeFileUpload" File="Program.cs" Line="147">'Exception'보다 좀 더 구체적인 예외를 catch하거나 예외를 다시 throw하려면 'Program.GetSite()'을(를) 수정하십시오.</Issue>
+            </Message>
+            <Message Id="System.Console.Write(System.String)" TypeName="리터럴을 지역화된 매개 변수로 전달하지 마십시오." Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2023-06-02 11:08:52Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="C:\Users\mhkang\Desktop\largefile\Core.LargeFileUpload\Core.LargeFileUpload" File="Program.cs" Line="144">'Program.GetSite()' 메서드가 리터럴 문자열을 'Console.Write(string)' 호출의 'value' 매개 변수로 전달합니다. 대신 리소스 테이블에서 "Enter your Office365 site collection URL: " 문자열을 가져오세요.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetUserName()" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2023-06-02 11:08:52Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="C:\Users\mhkang\Desktop\largefile\Core.LargeFileUpload\Core.LargeFileUpload" File="Program.cs" Line="131">'Exception'보다 좀 더 구체적인 예외를 catch하거나 예외를 다시 throw하려면 'Program.GetUserName()'을(를) 수정하십시오.</Issue>
+            </Message>
+            <Message Id="System.Console.Write(System.String)" TypeName="리터럴을 지역화된 매개 변수로 전달하지 마십시오." Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2023-06-02 11:08:52Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="C:\Users\mhkang\Desktop\largefile\Core.LargeFileUpload\Core.LargeFileUpload" File="Program.cs" Line="128">'Program.GetUserName()' 메서드가 리터럴 문자열을 'Console.Write(string)' 호출의 'value' 매개 변수로 전달합니다. 대신 리소스 테이블에서 "Username: " 문자열을 가져오세요.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Main(System.String[])" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="args" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Active" Created="2023-06-02 11:08:52Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="C:\Users\mhkang\Desktop\largefile\Core.LargeFileUpload\Core.LargeFileUpload" File="Program.cs" Line="15">'Program.Main(string[])'의 'args' 매개 변수가 사용되지 않습니다. 매개 변수를 제거하거나 메서드 본문에서 사용하십시오.</Issue>
+            </Message>
+            <Message Id="System.String.Format(System.String,System.Object)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2023-06-02 11:08:52Z" FixCategory="NonBreaking">
+             <Issue Name="IFormatProviderAlternateString" Certainty="95" Level="Error" Path="C:\Users\mhkang\Desktop\largefile\Core.LargeFileUpload\Core.LargeFileUpload" File="Program.cs" Line="74">'string.Format(string, object)'의 동작은 현재 사용자의 로캘 설정에 따라 달라질 수 있으므로 'Program.Main(string[])'에서 이 호출을 'string.Format(IFormatProvider, string, params object[])' 호출로 대체하세요. 'string.Format(IFormatProvider, string, params object[])'의 결과가 사용자에게 표시되는 경우 'CultureInfo.CurrentCulture'을(를) 'IFormatProvider' 매개 변수로 지정하세요. 그렇지 않고 결과가 디스크 또는 데이터베이스에 보관되는 경우와 같이 소프트웨어에 의해 저장 및 액세스되는 경우 'CultureInfo.InvariantCulture'을(를) 지정하세요.</Issue>
+            </Message>
+            <Message Id="System.Console.WriteLine(System.String)" TypeName="리터럴을 지역화된 매개 변수로 전달하지 마십시오." Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2023-06-02 11:08:52Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="C:\Users\mhkang\Desktop\largefile\Core.LargeFileUpload\Core.LargeFileUpload" File="Program.cs" Line="74">'Program.Main(string[])' 메서드가 리터럴 문자열을 'Console.WriteLine(string)' 호출의 'value' 매개 변수로 전달합니다. 대신 리소스 테이블에서 "Exception while uploading files to the target site: , ." 문자열을 가져오세요.</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="C:\Users\mhkang\Desktop\largefile\Core.LargeFileUpload\Core.LargeFileUpload" File="Program.cs" Line="76">'Program.Main(string[])' 메서드가 리터럴 문자열을 'Console.WriteLine(string)' 호출의 'value' 매개 변수로 전달합니다. 대신 리소스 테이블에서 "Press enter to continue." 문자열을 가져오세요.</Issue>
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="C:\Users\mhkang\Desktop\largefile\Core.LargeFileUpload\Core.LargeFileUpload" File="Program.cs" Line="81">'Program.Main(string[])' 메서드가 리터럴 문자열을 'Console.WriteLine(string)' 호출의 'value' 매개 변수로 전달합니다. 대신 리소스 테이블에서 "large files were uploaded to library. Press enter to continue." 문자열을 가져오세요.</Issue>
+            </Message>
+            <Message Id="System.Console.WriteLine(System.String,System.Object)" TypeName="리터럴을 지역화된 매개 변수로 전달하지 마십시오." Category="Microsoft.Globalization" CheckId="CA1303" Status="Active" Created="2023-06-02 11:08:52Z" FixCategory="DependsOnFix">
+             <Issue Name="KnownValue" Certainty="75" Level="Warning" Path="C:\Users\mhkang\Desktop\largefile\Core.LargeFileUpload\Core.LargeFileUpload" File="Program.cs" Line="20">'Program.Main(string[])' 메서드가 리터럴 문자열을 'Console.WriteLine(string, object)' 호출의 'format' 매개 변수로 전달합니다. 대신 리소스 테이블에서 "Enter credentials for {0}" 문자열을 가져오세요.</Issue>
+            </Message>
+            <Message TypeName="범위를 벗어나기 전에 개체를 삭제하십시오." Category="Microsoft.Reliability" CheckId="CA2000" Status="Active" Created="2023-06-02 11:08:52Z" FixCategory="DependsOnFix">
+             <Issue Name="NonExceptionEdge" Certainty="75" Level="Warning" Path="C:\Users\mhkang\Desktop\largefile\Core.LargeFileUpload\Core.LargeFileUpload" File="Program.cs" Line="29">'Program.Main(string[])' 메서드에서 'ctx' 개체에 대한 모든 참조가 범위를 벗어나기 전에 System.IDisposable.Dispose를 호출하십시오.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210">
+   <Name>어셈블리에는 올바른 강력한 이름을 사용해야 합니다.</Name>
+   <Description>어셈블리에 강력한 이름이 없거나, 강력한 이름이 잘못되었거나, 컴퓨터 구성 때문에 강력한 이름이 유효합니다. 어셈블리를 이러한 상태로 배포하면 안 됩니다. 가장 일반적인 원인은 다음과 같습니다. 1) 어셈블리를 서명한 후 어셈블리의 내용이 수정되었습니다. 2) 서명 프로세스를 수행하지 못했습니다. 3) 어셈블리의 서명이 연기되었습니다. 4) 생략해서는 안 되는 검사를 생략하는 레지스트리 키가 있습니다.</Description>
+   <Resolution Name="NoStrongName">강력한 이름의 키로 {0}을(를) 서명하십시오.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182127.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalError</MessageLevel>
+   <File Name="designrules.dll" Version="16.0.0.0" />
+  </Rule>
+  <Rule TypeName="DefaultParametersShouldNotBeUsed" Category="Microsoft.Design" CheckId="CA1026">
+   <Name>기본 매개 변수를 사용하면 안 됩니다.</Name>
+   <Description>일부 프로그래밍 언어는 기본 매개 변수를 지원하지 않습니다. 기본 매개 변수를 기본 인수를 제공하는 메서드 오버로드로 바꾸세요.</Description>
+   <Resolution Name="Default">{0} 메서드를 모든 기본 인수를 제공하는 오버로드로 바꾸세요.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182135.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Error</MessageLevel>
+   <File Name="designrules.dll" Version="16.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031">
+   <Name>일반적인 예외 형식을 catch하지 마십시오.</Name>
+   <Description>Exception 또는 SystemException을 catch하면 안 됩니다. 일반적인 예외 형식을 catch하면 라이브러리 사용자에게 런타임 문제가 표시되지 않아 디버깅이 복잡해질 수 있습니다. 적절하게 처리할 수 있는 예외만 catch해야 합니다.</Description>
+   <Resolution Name="Default">{1}보다 좀 더 구체적인 예외를 catch하거나 예외를 다시 throw하려면 {0}을(를) 수정하십시오.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182137.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalError</MessageLevel>
+   <File Name="designrules.dll" Version="16.0.0.0" />
+  </Rule>
+  <Rule TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014">
+   <Name>CLSCompliantAttribute로 어셈블리 표시</Name>
+   <Description>어셈블리는 CLSCompliant 특성을 사용하여 CLS 규격을 명시적으로 기술해야 합니다. 이 특성이 없는 어셈블리는 CLS 규격이 아닙니다. 어셈블리, 모듈 및 형식은 어셈블리, 모듈 또는 형식의 일부가 CLS 규격이 아니어도 CLS 규격이 될 수 있습니다. 다음과 같은 규칙이 적용됩니다. 1) 해당 요소가 CLSCompliant로 표시되면 모든 비규격 멤버의 CLSCompliant 특성의 인수를 false로 설정해야 합니다. 2) CLS 비규격 멤버 각각에 대해 비교 가능한 CLS 규격 대체 멤버가 제공되어야 합니다.</Description>
+   <Resolution Name="Default">{0}은(는) 외부에 표시되는 형식을 노출하므로 CLSCompliant(true)로 표시하십시오.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182156.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="designrules.dll" Version="16.0.0.0" />
+  </Rule>
+  <Rule TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822">
+   <Name>멤버를 static으로 표시</Name>
+   <Description>인스턴스 데이터에 액세스하지 않거나 인스턴스 메서드를 호출하지 않는 메서드는 static(Visual Basic의 경우 Shared)으로 표시할 수 있습니다. 이렇게 하면 컴파일러는 이 멤버에 대한 비가상 호출 사이트를 내보내므로 런타임에서 개별 호출에 대해 현재 개체 포인터가 null이 아닌지 확인하는 검사가 수행되지 않습니다. 성능에 민감한 코드의 경우 이 방법으로 성능을 크게 향상시킬 수 있습니다. 일부의 경우 현재 개체 인스턴스에 액세스하지 못하는 것은 정확성에 문제가 있기 때문일 수 있습니다.</Description>
+   <Resolution Name="Default">{0}의 'this' 매개 변수(Visual Basic의 경우 'Me')는 사용되지 않습니다. 멤버를 static(Visual Basic의 경우 Shared)으로 표시하거나 메서드 본문에서 'this'/'Me'를 사용하거나, 필요한 경우 하나 이상의 속성 접근자를 사용하십시오.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms245046.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Warning</MessageLevel>
+   <File Name="performancerules.dll" Version="16.0.0.0" />
+  </Rule>
+  <Rule TypeName="OperationsShouldNotOverflow" Category="Microsoft.Usage" CheckId="CA2233">
+   <Name>연산은 오버플로되지 않아야 합니다.</Name>
+   <Description>산술 연산은 먼저 피연산자가 오버플로되지 않는지 유효성을 검사한 후에 수행해야 합니다.</Description>
+   <Resolution Name="Default">{1}의 '{0}' 연산에서 잠재적인 오버플로를 수정하십시오.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182354.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">CriticalWarning</MessageLevel>
+   <File Name="usagerules.dll" Version="16.0.0.0" />
+  </Rule>
+  <Rule TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804">
+   <Name>사용되지 않는 로컬 항목을 제거하십시오.</Name>
+   <Description>사용되지 않거나 메서드 구현에서 단지 할당만 되는 로컬 항목을 제거하십시오.</Description>
+   <Resolution Name="Default">{0}에서 {2} 형식의 변수 {1}을(를) 선언하는데 이 변수는 사용되지 않거나 단지 할당만 되어 있습니다. 이 변수를 사용하거나 제거하십시오.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182278.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Warning</MessageLevel>
+   <File Name="performancerules.dll" Version="16.0.0.0" />
+  </Rule>
+  <Rule TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801">
+   <Name>사용되지 않은 매개 변수를 검토하십시오.</Name>
+   <Description>메서드 본문에 있는 사용되지 않는 비가상 메서드의 매개 변수를 검토하여 해당 매개 변수에 액세스하는 데 실패한 부근에 수정할 내용이 없는지 확인하십시오. 사용되지 않는 매개 변수가 있으면 유지 관리 및 성능을 유지하는 데 많은 노력이 필요합니다. 이 규칙을 위반하면 메서드를 구현하는 데 버그가 발생할 수도 있습니다. 즉, 매개 변수는 메서드 본문에서 실제로 사용되어야 합니다. 매개 변수가 이전 버전과의 호환성을 위해 반드시 있어야 하는 경우에는 이 규칙 경고를 제외하십시오.</Description>
+   <Resolution Name="Default">{1}의 {0} 매개 변수가 사용되지 않습니다. 매개 변수를 제거하거나 메서드 본문에서 사용하십시오.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182268.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Warning</MessageLevel>
+   <File Name="usagerules.dll" Version="16.0.0.0" />
+  </Rule>
+  <Rule TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305">
+   <Name>IFormatProvider를 지정하십시오.</Name>
+   <Description>IFormatProvider 인수를 사용하는 오버로드가 있으면 해당 인수를 사용하지 않는 오버로드를 위해 이 오버로드를 항상 호출해야 합니다. 런타임의 일부 메서드는 값을 문자열 표현으로 또는 문자열 표현을 값으로 변환하고, 값을 변환하는 방식을 나타내는 하나 이상의 문자(형식 지정자)가 들어 있는 문자열 매개 변수를 사용합니다. 형식 지정자의 의미가 문화권에 따라 다양한 경우 형식 개체는 문자열 표현에 사용되는 실제 문자를 제공합니다. 문화권 간에 정렬 및 비교 동작을 변경하면 안 되는 경우에는 CultureInfo.InvariantCulture를 지정하고, 그렇지 않으면 CultureInfo.CurrentCulture를 지정하세요.</Description>
+   <Resolution Name="IFormatProviderAlternateString">{0}의 동작은 현재 사용자의 로캘 설정에 따라 달라질 수 있으므로 {1}에서 이 호출을 {2} 호출로 대체하세요. {2}의 결과가 사용자에게 표시되는 경우 {3}을(를) 'IFormatProvider' 매개 변수로 지정하세요. 그렇지 않고 결과가 디스크 또는 데이터베이스에 보관되는 경우와 같이 소프트웨어에 의해 저장 및 액세스되는 경우 {4}을(를) 지정하세요.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182190.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="globalizationrules.dll" Version="16.0.0.0" />
+  </Rule>
+  <Rule TypeName="public 메서드의 인수에 대한 유효성을 검사하세요." Category="Microsoft.Design" CheckId="CA1062">
+   <Name>public 메서드의 인수에 대한 유효성을 검사하세요.</Name>
+   <Description>외부에 표시되는 메서드에 전달되는 모든 참조 인수는 null(VB에서는 Nothing)에 대해 검사해야 합니다. 적절한 경우 인수가 null이면 System.ArgumentNullException을 throw합니다.</Description>
+   <Resolution Name="Default">외부에 표시되는 메서드 {0}에서 사용하기 전에 '{1}' 매개 변수의 유효성을 검사하십시오.</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/ms182182.aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="16.0.0.0" />
+  </Rule>
+  <Rule TypeName="개체를 여러 번 삭제하지 마십시오." Category="Microsoft.Usage" CheckId="CA2202">
+   <Name>개체를 여러 번 삭제하지 마십시오.</Name>
+   <Description>올바로 구현된 Dispose 메서드는 예외를 throw하지 않고 여러 번 호출할 수 있습니다. 그러나 확실하지는 않으므로 System.ObjectDisposedException이 생성되지 않도록 개체에 대해 Dispose를 여러 번 호출하지 마십시오.</Description>
+   <Resolution Name="Default">{0} 개체는 {1} 메서드에서 여러 번 삭제할 수 있습니다. System.ObjectDisposedException이 생성되지 않도록 개체에 대해 Dispose를 여러 번 호출하지 마십시오.: Lines: 286</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/ms182334.aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="16.0.0.0" />
+  </Rule>
+  <Rule TypeName="리터럴을 지역화된 매개 변수로 전달하지 마십시오." Category="Microsoft.Globalization" CheckId="CA1303">
+   <Name>리터럴을 지역화된 매개 변수로 전달하지 마십시오.</Name>
+   <Description>소스 코드에 포함된 리터럴 문자열은 지역화하기 어렵습니다. 지역화된 문자열이 일반적으로 예상되는 상황에서 리터럴 문자열을 인수로 전달하지 마십시오.</Description>
+   <Resolution Name="KnownValue">{0} 메서드가 리터럴 문자열을 {2} 호출의 '{1}' 매개 변수로 전달합니다. 대신 리소스 테이블에서 {3} 문자열을 가져오세요.</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/ms182187.aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="16.0.0.0" />
+  </Rule>
+  <Rule TypeName="범위를 벗어나기 전에 개체를 삭제하십시오." Category="Microsoft.Reliability" CheckId="CA2000">
+   <Name>범위를 벗어나기 전에 개체를 삭제하십시오.</Name>
+   <Description>삭제 가능한 개체에 대한 모든 참조가 범위를 벗어나기 전에 삭제 가능한 개체가 명시적으로 삭제되지 않으면 가비지 수집기가 개체의 종료자를 실행할 때 비활성화 시점에서 개체가 삭제됩니다. 개체 종료자의 실행을 방지하는 예외적인 이벤트가 발생할 수 있으므로 대신 개체를 명시적으로 삭제해야 합니다.</Description>
+   <Resolution Name="NonExceptionEdge">{0} 메서드에서 {1} 개체에 대한 모든 참조가 범위를 벗어나기 전에 System.IDisposable.Dispose를 호출하십시오.</Resolution>
+   <Owner>RuleOwner</Owner>
+   <Url>http://msdn.microsoft.com/library/ms182289.aspx</Url>
+   <Email />
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="dataflowrules.dll" Version="16.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">범주</String>
+  <String Key="Certainty">확신도</String>
+  <String Key="CollapseAll">모두 축소</String>
+  <String Key="CheckId">확인 ID</String>
+  <String Key="Error">오류</String>
+  <String Key="Errors">개 오류</String>
+  <String Key="ExpandAll">모두 확장</String>
+  <String Key="Help">도움말</String>
+  <String Key="Line">줄</String>
+  <String Key="Messages">메시지</String>
+  <String Key="LocationNotStoredInPdb">[Pdb에 위치가 저장되지 않음]</String>
+  <String Key="Project">프로젝트</String>
+  <String Key="Resolution">확인</String>
+  <String Key="Rule">규칙</String>
+  <String Key="RuleFile">규칙 파일</String>
+  <String Key="RuleDescription">규칙 설명</String>
+  <String Key="Source">소스</String>
+  <String Key="Status">상태</String>
+  <String Key="Target">대상</String>
+  <String Key="Warning">경고</String>
+  <String Key="Warnings">경고</String>
+  <String Key="ReportTitle">코드 분석 보고서</String>
+ </Localized>
+</FxCopReport>
